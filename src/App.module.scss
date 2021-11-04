@@ -1,0 +1,36 @@
+$color-error: #ff0000;
+
+.background {
+   background-color: #f0f0f0;
+}
+
+.centered {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.throttle {
+   margin: 1rem;
+   font-size: 1.6rem;
+}
+
+.throttle > * {
+   margin-left: 1rem;
+}
+
+.errorModal {
+   font-size: 1.6rem;
+   font-weight: bold;
+   color: $color-error;
+}
+
+.loadingModal {
+   font-size: 1.6rem;
+   font-weight: bold;
+}
+
+.message {
+   font-size: 12;
+   margin-top: 1rem;
+}
