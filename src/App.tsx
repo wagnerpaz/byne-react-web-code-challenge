@@ -127,13 +127,17 @@ function App(): React.ReactElement {
    }, [lastJsonMessage]);
 
    useEffect(() => {
+      sendJsonMessage({ event: 'subscribe', stocks: subscribedStocks });
+      return () => {
+         sendJsonMessage({ event: 'unsubscribe', stocks: subscribedStocks });
+      };
+   }, [sendJsonMessage, subscribedStocks]);
+
+   useEffect(() => {
       if ((lastJsonMessage as Event)?.event === 'connected') {
          sendJsonMessage({ event: 'subscribe', stocks: subscribedStocks });
-         return () => {
-            sendJsonMessage({ event: 'unsubscribe', stocks: subscribedStocks });
-         };
       }
-   }, [sendJsonMessage, lastJsonMessage, subscribedStocks]);
+   }, [lastJsonMessage]);
 
    if (error) {
       return (
